@@ -1,0 +1,38 @@
+-----------------------  COMANDOS SQL  ------------------------
+
+CREATE DATABASE -> criar novo banco de dados
+CREATE TABLE -> criar tabela dentro do banco de dados
+ALTER TABLE -> alterar dados da tabela
+ADD -> adicionar campos a tabela
+CHANGE -> modificar nome do campo
+MODIFY -> modificar atributo do campo
+DROP COLUMN -> excluir um campo da tabela
+
+--- TIPOS DE DADOS
+
+INT -> números inteiros
+FLOAT -> indicar tamanho de casas decimais. Ex: distancia em metros
+DOUBLE ->
+DECIMAL -> indicado para valores monetários onde a precisão é importante. Ex: salário de um funcionário
+CHAR -> de tamaho fixo, sempre é completada com espaços a direita até o tamanho definido. Ex: RG
+VARCHAR -> tamanho variável. Ex: nome
+TEXT -> usada para textos. Ex: observação:
+DATE -> armazena datas
+DATETIME -> data e hora no mesmo campo
+TIME -> armazena horas
+
+
+--- ATRIBUTOS
+
+NULL -> permite que o campo aceite valores nulos, quando a informação não é obrigatória.
+NOT NULL -> não aceita valores nulos no campo, campo obrigatório
+AUTO_INCREMENT -> criar um código sequencial que é gerado automaticamente pelo banco de dados
+UNIQUE -> não permite duplicidade de valor, requer valores únicos.
+DEFAULT -> atribui um valor padrão ao campo, quando um novo registro for criado sem especificar o valor dele
+SIGNED/UNSIGNED -> para dados numéricos. Determina se o número terá ou não sinal. UNSIGNED indicada que o campo só aceitará números positivos
+PRIMARY KEY -> atributo identificador sendo uma chave única, universal e imutável
+INNODB -> mecanismo de armazenamento mais rápido
+CHARSET -> codificação de caracteres
+UTF8 -> para codificação da linguagem em portugues
+
+
