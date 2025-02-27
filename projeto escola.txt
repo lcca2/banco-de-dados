@@ -1,0 +1,98 @@
+  // BANCO
+
+CREATE DATABASE escola;
+USE escola;
+
+  // TABELAS
+
+CREATE TABLE cursos(
+    id_curso INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    turno VARCHAR(20) NOT NULL,
+    area VARCHAR(20) NOT NULL
+    )ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
+CREATE TABLE matricula(
+    id_matricula INT PRIMARY KEY AUTO_INCREMENT,
+    data_matricula DATE NOT NULL
+    )ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
+CREATE TABLE aluno(
+    num_matricula INT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    data_nasci DATE NOT NULL,
+    genero VARCHAR(20) NOT NULL,
+    rua VARCHAR(50) NOT NULL,
+    bairro VARCHAR(50) NOT NULL,
+    cep VARCHAR(10) NOT NULL,
+    cidade VARCHAR(50) NOT NULL
+    )ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
+CREATE TABLE disciplina(
+    cod_disciplina INT PRIMARY KEY,
+    descricao TEXT(200 )NOT NULL
+    )ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
+CREATE TABLE sala(
+    cod_sala INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL,
+    localizacao VARCHAR(50) NOT NULL
+    )ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
+CREATE TABLE docente(
+    cod_doscente INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    telefone VARCHAR(100) NOT NULL,
+    endereco VARCHAR(100) NOT NULL
+    )ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
+CREATE TABLE dependentes(
+    cod_depe INT PRIMARY KEY,
+    nome VARCHAR(60) NOT NULL,
+    data_nasci DATE NOT NULL,
+    grau_parentesco VARCHAR(20) NOT NULL
+    )ENGINE=INNODB DEFAULT CHARSET=UTF8;
+
+
+  // ADICIONAR DADOS NAS TABELAS
+
+ALTER TABLE cursos
+ADD COLUMN data_inicio DATE NOT NULL, ADD COLUMN fim_curso DATE NOT NULL;
+
+ALTER TABLE disciplina
+ADD COLUMN nome_disciplina VARCHAR(30) NOT NULL;
+
+ALTER TABLE aluno
+ADD COLUMN cpf CHAR(11) NOT NULL, ADD COLUMN estado CHAR(2) NOT NULL, ADD COLUMN telefone VARCHAR(15) NOT NULL;
+
+ALTER TABLE docente
+ADD COLUMN formacao_academica VARCHAR(50) NOT NULL;
+
+  // DELETAR ATRIBUTO
+
+ALTER TABLE aluno DROP COLUMN genero;
+
+  // INSERÇÃO DE DADOS
+
+INSERT INTO aluno 
+(id, nome, data_nasci, rua, bairro, cep, cidade, cpf, estado, telefone)
+VALUES
+(1, 'Ana', '1995-04-13', 'Rua Lima e Silva, 1015', 'Cidade Baixa', '90050-230', 'Porto Alegre', '12345678903', 'RS', '051991234567'), 
+(2, 'João', '1990-01-15', 'Rua Dr Flores', 'Centro Historico', '90000-000', 'Porto Alegre', '12345678901', 'RS', '051998765432'),
+(3, 'Maria Oliveira', '1985-05-20', 'Av. Salgado Filho', 'Centro Histórico', '91234-000', 'Porto Alegre', '23456789012', 'RS', '051987654323'),
+(4, 'Carlos Lima', '1992-11-02', 'Rua Auxiliadora', 'Auxiliadora', '20000-000', 'Porto Alegre', '34567890123', 'RS', '051987654324'),
+(5, 'Ana Santos', '1995-08-15', 'Av Venâncio Aires', 'Cidade Baixa', '90050-230', 'Porto Alegre', '45678901234', 'RS', '5541987654326');
+
+
+INSERT INTO cursos
+(nome, turno, area, data_inicio, fim_curso)
+VALUES
+('Técnico em Análise e Desenvolvimento de Sitemas', 'Manhã', 'Tecnologia', 20242009, 20262009),
+('Técnico em Administração', 'Tarde', 'Administrativo', 202420506, 20260506),
+('Técnico em Marketing', 'Noite', 'Comunicação', 20240506, 20260607);
+
+
+
+
+
+
